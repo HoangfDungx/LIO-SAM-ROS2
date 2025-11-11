@@ -80,6 +80,15 @@ def generate_launch_description():
             output='screen'
         ),
         Node(
+            package='slam_wrapper',
+            executable='transform_wrapper',
+            output='screen',
+            remappings=[
+                ('/odom', 'lio_sam/mapping/odometry'),
+                ('/base_trajectory', 'lio_sam/base_trajectory'),
+            ]
+        ),
+        Node(
             package='rviz2',
             executable='rviz2',
             name='rviz2',
